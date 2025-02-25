@@ -1,0 +1,35 @@
+-- Insert data into ALBUM table
+INSERT INTO ALBUM (NAME, GENRE, RELEASE_YEAR) VALUES
+('Greatest Hits', 'Rock', '1981'),
+('Classical Symphony', 'Classical', '1965'),
+('Jazz Masters', 'Jazz', '1975'),
+('Pop Collection', 'Pop', '1990'),
+('Metal Legends', 'Metal', '2001');
+
+
+-- Insert data into ARTIST table
+INSERT INTO ARTIST (ID, FIRST_NAME, LAST_NAME, BIO) VALUES
+(678, 'Drake', 'Graham', 'Aubrey Drake Graham is a Canadian rapper, singer, and actor.'),
+(789, 'Katy', 'Perry', 'Katheryn Elizabeth Hudson, known professionally as Katy Perry, is an American singer, songwriter, and television judge.'),
+(890, 'Bruno', 'Mars', 'Peter Gene Hernandez, known professionally as Bruno Mars, is an American singer, songwriter, record producer, and dancer.'),
+(901, 'Shakira', 'Mebarak', 'Shakira Isabel Mebarak Ripoll is a Colombian singer, songwriter, and dancer.'),
+(1011, 'Lady', 'Gaga', 'Stefani Joanne Angelina Germanotta, known professionally as Lady Gaga, is an American singer, songwriter, and actress.');
+
+
+-- Insert data into SONG table
+INSERT INTO SONG (TRACK_ID, TITLE, GENRE, RELEASE_YEAR, ALBUM_ID) VALUES
+('tdwom2016', 'Too Good', 'Hip-Hop/R&B', 2016, 3),
+('ltkf2012', 'Locked Out of Heaven', 'Pop/Rock', 2012, 1),
+('jappls2009', 'Just Dance', 'Pop', 2009, 2),
+('rnglory2013', 'Roar', 'Pop', 2013, 3),
+('hottlnb2018', 'Hotline Bling', 'Hip-Hop/R&B', 2018, 4);
+
+
+-- Insert data into SONG_PERFORMERS table
+-- Assuming the SONG_ID values for the songs above are 1, 2, 3, 4, and 5.
+INSERT INTO SONG_PERFORMERS (SONG_ID, PERFORMERS_ID) VALUES
+(1, 678), (1, 789),           -- Performers for "Too Good"
+(2, 890), (2, 789),           -- Performers for "Locked Out of Heaven"
+(3, 1011), (3, 890),          -- Performers for "Just Dance"
+(4, 1011), (4, 789),          -- Performers for "Roar"
+(5, 678), (5, 890);           -- Performers for "Hotline Bling"

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Add New Performer to Book</title>
+    <style type="text/css">
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        header {
+            background-color:
+                    #6f647d
+        ;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        header a {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+
+        section, aside {
+            margin: 20px auto;
+            width: 800px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        table, td, th {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        button {
+            background-color:
+            #6f647d
+        ;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color:
+                    #6f647d;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        span {
+            font-size: 16px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color:
+                    #6f647d
+        ;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Select the Artist to Add to the List of Performers</h1>
+    <a href="/login" class="button-link">
+        Logout
+    </a>
+</header>
+
+<section>
+    <form th:action="@{/songDetails}" th:method="post">
+        <input type="hidden" name="trackId" th:value="${trackId}">
+        <h2>Select an Artist:</h2>
+        <div th:each="artist : ${artists}">
+            <input type="radio" name="artistId" th:value="${artist.id}" required>
+            <span th:text="${artist.firstName} + ' ' + ${artist.lastName}">Artist Name</span><br/>
+        </div>
+        <button type="submit">Add Artist</button>
+    </form>
+</section>
+
+<aside>
+    <h2>Track Details:</h2>
+    <table>
+        <tr>
+            <td><b>Track Id</b></td>
+            <td th:text="${trackId}">Track Id Placeholder</td>
+        </tr>
+    </table>
+</aside>
+
+<footer>
+    <p>© 2024 My Music Store. All Rights Reserved.</p>
+</footer>
+</body>
+</html>
